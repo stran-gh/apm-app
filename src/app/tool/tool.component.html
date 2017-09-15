@@ -8,23 +8,23 @@
 	</div>
 
 	<div class="row">
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-md-4">
 			Welcome to the tool.
 		</div>
-		<div class="col-lg-6">
-			<div class="col-lg-offset-1">
+		<div class="col-lg-6 col-md-6">
+			<div class="col-lg-offset-1 col-md-offset-1">
 				<div class="form-group">
 					<label> Select the stage of the game you would like to add a trigger to: </label>
-					<div class="col-lg-10">
+					<div class="col-lg-10 col-md-10">
 					<select class="form-control" [(ngModel)]="selectedStage">
-	  					<option *ngFor="let stage of gameStages" [ngValue]="stage">{{stage.name}}</option>
+	  					<option *ngFor="let stage of gameStages" [ngValue]="stage">{{stage}}</option>
 					</select>
 					</div>
 
 					<label> What sound would you like to trigger your behavior? </label>
-					<div class="col-lg-10">
+					<div class="col-lg-10 col-md-10">
 						<select class="form-control" [(ngModel)]="selectedSound">
-	  						<option *ngFor="let sound of allSounds" [ngValue]="sound">{{sound.name}}</option>
+	  						<option *ngFor="let sound of allSounds" [ngValue]="sound">{{sound}}</option>
 						</select>
 					</div>
 
@@ -33,47 +33,51 @@
 
 			<form #f="ngForm" (ngSubmit)="onAddTrigger(f)">
 			<div class="row">
-				<div class="col-lg-offset-1 col-lg-9">
+				<div class="col-lg-offset-1 col-lg-9 col-md-offset-1 col-md-9">
 					<label for="interval"> How often (in seconds) would you like this sound to be repeated? </label> 
-					<input type="text" class="form-control" name="interval" ngModel>
-					
+					<div class="col-lg-4 col-md-4">
+						<input type="number" class="form-control" name="interval" ngModel>
+					</div>
 				</div>
 
 			</div>
 			<div class="row">
-				<div class="col-lg-9 col-lg-offset-1">
+				<div class=" col-lg-offset-1 col-lg-9 col-md-offset-1 col-md-9">
 					<label> What would you like this sound to be associated with? </label>
 					<input type="text" placeholder="Behavior" class="form-control" name="behavior" ngModel>
 				</div>
-				
-				<div class="row">
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-lg-offset-8 col-lg-3 col-md-offset-8 col-md-3">
 					<button class="btn btn-primary">Add</button>
 				</div>
-			</div>
+			</div>	
 			</form>
 		</div>
 	</div>
 
+	<hr>
 
 
 	<div class="row">
-		<div class="col-lg-4"> 		
+		<div class="col-lg-4 col-md-4"> 		
 			<div class="row">
-				<div class="col-lg-12"> 
+				<div class="col-lg-12 col-md-12"> 
 					<app-early-game></app-early-game>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4">
+		<div class="col-lg-4 col-md-4">
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12 col-md-12">
 					<app-mid-game></app-mid-game>
 				</div>
 			</div>
 		</div>
-		<div class="col-lg-4"> 
+		<div class="col-lg-4 col-md-4"> 
 			<div class="row">
-				<div class="col-lg-12">
+				<div class="col-lg-12 col-md-12">
 					<app-late-game></app-late-game>
 				</div>
 			</div>

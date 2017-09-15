@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpModule} from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import { ToolComponent } from './tool/tool.component';
 import { EarlyGameComponent } from './early-game/early-game.component';
 import { MidGameComponent } from './mid-game/mid-game.component';
 import { LateGameComponent } from './late-game/late-game.component';
+
+import { StageService } from './services/stage.service';
+import { DatabaseService } from './services/database.service';
 
 
 @NgModule({
@@ -29,9 +33,10 @@ import { LateGameComponent } from './late-game/late-game.component';
     BrowserModule,
     NgbModule.forRoot(),
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [StageService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

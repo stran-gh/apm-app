@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ToolComponent } from './tool/tool.component';
 
 const appRoutes: Routes = [
-	{ path: '', redirectTo: '/home', pathMatch: 'full'},
+	{ path: '', redirectTo: '/tool', pathMatch: 'full'},
 	{ path: 'home', component: HomeComponent },
 	{ path: 'tool', component: ToolComponent }
 ];

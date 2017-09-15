@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as firebase from 'firebase';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+
+  ngOnInit(){
+  	firebase.initializeApp({
+  		apiKey: "AIzaSyD-fllZlrSRxkoGjEvINgCVwp30mdjc9cE",
+    	authDomain: "apmproject-438ac.firebaseapp.com",
+      databaseURL: "https://apmproject-438ac.firebaseio.com"
+  	});
+  }
 }
+
