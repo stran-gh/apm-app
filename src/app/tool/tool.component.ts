@@ -90,7 +90,7 @@ export class ToolComponent implements OnInit {
   }
 
   addToMG(interval: number, behavior: string){
-    this.dbService.storeTriggerLate(this.selectedStage,
+    this.dbService.storeTriggerMid(this.selectedStage,
                   this.selectedSound, interval, behavior)
                   .subscribe(
                     (response) => console.log(response),

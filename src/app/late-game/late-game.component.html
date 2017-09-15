@@ -1,4 +1,10 @@
 <h3> Late Game </h3>
-<p>
-  late-game works!
-</p>
+
+<ul class="list-group">
+		<div class="row">
+			<li class="list-group-item" *ngFor="let triggerObj of currentTriggers">
+				{{triggerObj.sound}}, {{triggerObj.interval}}, {{triggerObj.behavior}}
+			</li>
+		</div>
+	</ul>
+

@@ -58,7 +58,7 @@ export class DatabaseService{
 		});
 	}
 
-	getLGTriggersToList() : Promise <any>{
+	getMGTriggersToList() : Promise <any>{
 		var data = firebase.database().ref("/mid-game");
 		let triggerList : Trigger[] = [];
 		return new Promise<any>((resolve, reject) => {
@@ -73,7 +73,7 @@ export class DatabaseService{
 		});
 	}
 
-	getMGTriggersToList() : Promise <any>{
+	getLGTriggersToList() : Promise <any>{
 		var data = firebase.database().ref("/late-game");
 		let triggerList : Trigger[] = [];
 		return new Promise<any>((resolve, reject) => {
