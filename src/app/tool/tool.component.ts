@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Trigger } from '../models/trigger.model';
-import { StageService } from '../services/stage.service';
+import { SoundService } from '../services/sound.service';
 import { DatabaseService } from '../services/database.service';
 
 
@@ -12,7 +12,7 @@ import { DatabaseService } from '../services/database.service';
 })
 export class ToolComponent implements OnInit {
 
-  constructor(private stageService: StageService,
+  constructor(private stageService: SoundService,
           private dbService: DatabaseService) { 
 
   }
@@ -27,7 +27,18 @@ export class ToolComponent implements OnInit {
   allSounds = [
   	"Missing Ping",
     "Danger Ping",
-    "Careful Ping"
+    "Careful Ping",
+    "Need Assistance Ping",
+    "Attack Ping",
+    "Defend Base Ping",
+    "Fall Back Ping",
+    "On The Way Ping",
+    "Cha-ching",
+    "Cow Bell",
+    "Hi Hat",
+    "Clap",
+    "Wooden Pop",
+    "Beep"
   ];
 
   selectedStage = null;	
@@ -36,6 +47,11 @@ export class ToolComponent implements OnInit {
   desiredBehavior = null;
 
   ngOnInit() {
+  }
+
+  // Method Called when a game is started
+  onBegin(){
+    this.dbService.egStart.emit(true);
   }
 
   // When trigger details are completed and "add" buttonis pressed, 

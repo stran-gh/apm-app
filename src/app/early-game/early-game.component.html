@@ -1,11 +1,14 @@
 <div class="container-fluid">
-	<h3> Early Game </h3>
+	<h3 class="text-center"> Early Game </h3>
 	
 
 	<ul class="list-group">
 		<div class="row">
 			<li class="list-group-item" *ngFor="let triggerObj of currentTriggers">
 				{{triggerObj.sound}}, {{triggerObj.interval}}, {{triggerObj.behavior}}
+				<button class="btn btn-danger" (click)="onDeletePressed(triggerObj.sound)">
+					Delete
+				</button>
 			</li>
 		</div>
 	</ul>

@@ -14,6 +14,8 @@ export class DatabaseService{
 	mgTriggers = new EventEmitter<Trigger[]>();
 	lgTriggers = new EventEmitter<Trigger[]>();
 
+	egStart = new EventEmitter<boolean>();
+
 
 	storeTriggerEarly(stage: string, sound: string, interval: number, behavior: string){
 		console.log("In Store Early");
@@ -88,10 +90,16 @@ export class DatabaseService{
 		});
 	}
 
-	addToList(stage: string, trigger: string, interval: number, behavior: string){
-		console.log(stage);
-		console.log(trigger);
-		console.log(interval);
-		console.log(behavior);
+	deleteFromEG(sound: string){
+		var database = firebase.database().ref("/early-game");
+
+		database.once('value', function(snapshot){
+			var list = snapshot.val();
+			for(let key in list){
+				if(sound == list[key].sound){
+					firebase.database().ref('/early-game/' + key).remove();
+				}
+			}
+		})
 	}
 }

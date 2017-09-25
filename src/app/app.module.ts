@@ -15,7 +15,7 @@ import { EarlyGameComponent } from './early-game/early-game.component';
 import { MidGameComponent } from './mid-game/mid-game.component';
 import { LateGameComponent } from './late-game/late-game.component';
 
-import { StageService } from './services/stage.service';
+import { SoundService } from './services/sound.service';
 import { DatabaseService } from './services/database.service';
 
 
@@ -36,7 +36,7 @@ import { DatabaseService } from './services/database.service';
     FormsModule,
     HttpModule
   ],
-  providers: [StageService, DatabaseService],
+  providers: [SoundService, DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

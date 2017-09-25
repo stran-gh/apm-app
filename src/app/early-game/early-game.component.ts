@@ -14,18 +14,28 @@ export class EarlyGameComponent implements OnInit {
 
   }
 
+  egSounds: string[] = [];
+  currentTriggers: Trigger[] = [];
+
   ngOnInit() {
+  	//Subscribe to any changes in egTriggers EventEmitter to display properly
   	this.dbService.egTriggers.subscribe(
   		(dbTriggers) => {
   			this.currentTriggers = dbTriggers;
   			this.displayTriggers();
   		}
   	);
+
+  	//Subscribe to egStart EventEmitter to communicate when game is started
+  	this.dbService.egStart.subscribe(
+  		(result) =>{
+  			this.onStartPressed();
+  		});
+
   	this.displayTriggers();
   }
 
-  currentTriggers: Trigger[] = [];
-
+  // Updates the triggers of EG to display properly
   displayTriggers(){
   	return this.dbService.getEGTriggersToList().then(
   			(result) => {
@@ -34,6 +44,23 @@ export class EarlyGameComponent implements OnInit {
   		);
   }
 
+  // Called from button, deletes the selected trigger
+  onDeletePressed(sound: string){
+  	this.dbService.deleteFromEG(sound);
+  	this.displayTriggers();
+  }
+
+  // When a game is started, prepares all sounds to be played
+  onStartPressed(){
+  	// All sounds are added to the array to be prepared as Audio
+  	for(let index in this.currentTriggers){
+  		this.egSounds.push(this.currentTriggers[index].sound);
+  	}
+  	console.log(this.egSounds);
+
+  	
+
+  }
 
 
 }
